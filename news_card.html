@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günü Haberi</title>
+    <link rel="stylesheet" href="news_card_styles.css">
+    <style>
+        /* Animasyonlar */
+        @keyframes slideIn {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .news-card {
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .news-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .news-card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-card">
+        <img src="https://media2.giphy.com/media/jXZvyOzBFlagwuFabc/200w.gif?cid=6c09b952eockf9fhmdvmihwdc76ce5xm8tckanjfucfdeibd&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Doğum Günü Fotoğrafı">
+        <p><strong>Son Dakika!</strong> Arkadaşımın Doğum Günü Kutlu Olsun!</p>
+        <a href="photo_album.html" class="btn">Fotoğraf Albümüne Git</a>
+    </div>
+</body>
+</html>

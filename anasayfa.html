@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkadaşımın Doğum Günü</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            overflow: auto; /* Scroll ekleme */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+    overflow: auto;        }
+
+        .gift-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid transparent;
+            transform: translateX(-50%);
+        }
+
+        .lid {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            width: 180px;
+            height: 20px;
+            background-color: transparent;
+            border-radius: 5px;
+        }
+
+        .base {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            width: 180px;
+            height: 180px;
+            background-color: transparent;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-image: url('confetti.png');
+            background-size: cover;
+            animation: confettiAnimation 5s linear infinite;
+        }
+
+        @keyframes confettiAnimation {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(300px) rotate(360deg); }
+        }
+
+        .swiper-container {
+            width: 300px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Fotoğrafı ortala */
+            border-radius: 10px;
+        }
+
+        .animated-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .news-card {
+            background-color: #ffffff;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .news-card img {
+            width: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .news-card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ffcc00;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        position: relative;
+        z-index: 1; /* Butonun diğer içeriklerin üzerine gelmesini sağlar */
+    }
+
+    .btn:hover {
+        background-color: #ff9900;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gift-box" onclick="openGift()">
+            <div class="ribbon"></div>
+            <div class="lid"></div>
+            <div class="base"></div>
+            <div class="confetti"></div>
+        </div>
+
+        <audio id="birthday-song" src="birthday_song.mp3"></audio>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://zeynepkaygun.netlify.app/resimler/WhatsApp%20Image%202024-05-31%20at%2015.43.12%20(3).jpeg" alt="Fotoğraf 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://zeynepkaygun.netlify.app/resimler/WhatsApp%20Image%202024-05-31%20at%2015.43.12%20(2).jpeg" alt="Fotoğraf 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://zeynepkaygun.netlify.app/resimler/asa.jpeg" alt="Fotoğraf 3">
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="animated-text">
+            <p>Doğum Günün Kutlu Olsun</p>
+        </div>
+
+        <div class="news-card" style="text-align: center;">
+            <img src="https://zeynepkaygun.netlify.app/resimler/WhatsApp%20Image%202024-05-31%20at%2015.43.11.jpeg" alt="Doğum Günü Fotoğrafı" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+            <p style="font-size: 18px; margin-bottom: 20px;">Arkadaşımın Doğum Günü Kutlu Olsun!</p>
+            <a href="news_card.html" class="btn">Fotoğraf Albümüne Git</a>
+        </div>
+        
+        
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function openGift() {
+            var confetti = document.querySelector('.confetti');
+            confetti.style.display = 'block';
+
+            var song = document.getElementById('birthday-song');
+            song.play();
+        }
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true, // Sürekli döngü
+            autoplay: {
+                delay: 3000, // Otomatik kaydırma aralığı (milisaniye cinsinden)
+                disableOnInteraction: false, // Kullanıcı etkileşimiyle otomatik kaydırma devam eder
+            },
+        });
+    </script>
+</body>
+</html>
